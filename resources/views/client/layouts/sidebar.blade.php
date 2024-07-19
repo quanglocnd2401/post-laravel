@@ -2,12 +2,15 @@
     <!-- Search -->
     <div class="widget">
         <h4 class="widget-title"><span>Search</span></h4>
-        <form action="#!" class="widget-search">
+
+        <form action="{{ route('article.search') }}" class="widget-search" method="GET">
             <input class="mb-3" id="search-query" name="s" type="search"
                 placeholder="Type &amp; Hit Enter...">
             <i class="ti-search"></i>
             <button type="submit" class="btn btn-primary btn-block">Search</button>
         </form>
+
+
     </div>
     <div class="widget widget-categories">
         <h4 class="widget-title"><span>Categories</span></h4>

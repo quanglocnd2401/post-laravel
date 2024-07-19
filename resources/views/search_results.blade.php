@@ -6,7 +6,7 @@
         <h2 class="h5 section-title">Recent Post</h2>
 
         @foreach ($articles as $key => $article)
-                <x-article :article="$article" :user="1"/>
+                <x-article :article="$article"/>
         @endforeach
 
         <ul class="pagination justify-content-center">

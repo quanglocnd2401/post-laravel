@@ -19,7 +19,7 @@
 
                                 @foreach ($categories as $sub_category)
                                     @if ($sub_category->parent_id == $category->id)
-                                        <a class="dropdown-item" href="index-full.html">{{ $sub_category->name }}</a>
+                                        <a class="dropdown-item" href="{{route('article.postcate',$sub_category)}}">{{ $sub_category->name }}</a>
                                     @endif
                                 @endforeach
 

@@ -71,6 +71,9 @@ Route::prefix('article')
 
         Route::post('/{article}/comment',          [CommentController::class, 'store'])->name('comment');
 
+        Route::get('/postcate/{category}', [HomeController::class, 'postcate'])->name('postcate');
+
+        Route::get('/', [HomeController::class, 'search'])->name('search');
 
     });
 

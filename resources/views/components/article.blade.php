@@ -31,11 +31,11 @@
             </li>
         </ul>
         <p> {{ Str::limit($article->content, 50) }}</p>
-
+        <a href="{{ route('article.show', $article) }}" class="btn btn-outline-primary">Chi tiết</a>
         @if ($user == 2)
             <div class="d-flex justify-content-between">
                 <div>
-                    <a href="{{ route('article.show', $article) }}" class="btn btn-outline-primary">Chi tiết</a>
+
                     <a class="btn btn-info" href="{{ route('article.edit', $article) }}">Sửa</a>
                 </div>
 

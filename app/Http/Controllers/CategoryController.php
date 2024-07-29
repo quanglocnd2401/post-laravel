@@ -15,11 +15,12 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $rootCategory = Category::whereNull('parent_id');
+        // $rootCategory = Category::whereNull('parent_id');
 
-        $categories = $rootCategory->with('children')->get();
+        // $categories = $rootCategory->with('children')->get();
 
-        // dd($allCategory->toArray());
+        $categories = Category::all();
+        
 
         return view(self::VIEW_CATEGORY . __FUNCTION__ , compact('categories') );
     }

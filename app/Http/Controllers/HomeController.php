@@ -26,12 +26,12 @@ class HomeController extends Controller
     public function showHome()
     {
 
-        $categories = Category::all();
+
         $articles = Article::query()
             ->where('is_active', '1')
             ->get();
         $user =  auth()->user();
-        return view('home', compact('articles','categories','user'));
+        return view('home', compact('articles','user'));
     }
 
     public function show(Request $request, Article $article)
@@ -72,11 +72,11 @@ class HomeController extends Controller
     }
 
     public function manage(User $user){
-        $categories = Category::all();
+
         $articles = Article::query()->where('user_id', $user->id)->get();
 
         // dd($articles);
-        return view(__FUNCTION__, compact('articles','categories'));
+        return view(__FUNCTION__, compact('articles'));
     }
 
     public function edit(Article $article)
@@ -87,9 +87,8 @@ class HomeController extends Controller
         ]);
 
         // dd($article->toArray());
-        $categories = Category::query()->get();
 
-        return view('edit', compact('categories', 'article'));
+        return view('edit', compact('article'));
     }
 
     /**
@@ -130,8 +129,8 @@ class HomeController extends Controller
     public function postcate(Category $category){
 
         $articles = Article::where('category_id',$category->id)->get();
-        $categories = Category::all();
-        return view('postcate', compact('articles','categories'));
+
+        return view('postcate', compact('articles'));
 
     }
 
@@ -142,8 +141,8 @@ class HomeController extends Controller
 
         // Tìm kiếm trong bảng posts, bạn có thể thay đổi thành bảng và cột bạn cần
         $articles = Article::where('title', 'LIKE', "%{$query}%")->get();
-        $categories = Category::all();
-        return view('search_results', compact('articles','categories'));
+
+        return view('search_results', compact('articles'));
     }
 
 }
